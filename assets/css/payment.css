@@ -1,0 +1,38 @@
+
+  
+  .CCBackground {
+    height: 100%;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+   
+  }
+  
+  .outercontainer {
+    
+   width: 100%;
+    padding: 20px;
+    border-radius: 3px;
+    
+    
+  }
+  
+  .formcontainer {
+    margin-top: 20px;
+  }
+  
+  .purchasebtn {
+    margin-top: 20px;
+  }
+  
+  .btn-success {
+    background-color: #0032a0;
+  }
+
+  @media only screen and (max-width: 450px) {
+    .card-wrapper{
+      display: none;
+    }
+    #cardAlt{
+      display:block
+    }
+  }
+ 

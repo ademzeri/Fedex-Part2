@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="./assets/js/index.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>DHL</title>
+  </head>
+  <body>
+    <!--header-->
+    <header class="w-full">
+      <div class="w-full mx-auto ">
+        <nav class="border-gray-200 bg-[#4D148C]">
+          <div
+            class="max-w-7xl flex flex-row flex-wrap items-center  justify-between m-auto p-4"
+            id="nav-block"
+          >
+            <a href="#" class="flex items-center lg:order-1">
+              <img src="./assets/images/Fedex_logo.png" class="w-[60%]" />
+              
+            </a>
+
+            <div class="flex items-center lg:order-3">
+              <!--user section-->
+              <button
+                type="button"
+                class="flex justify-center items-center rounded-full ml-8 p-2"
+                id="user-menu-button"
+                aria-expanded="false"
+                data-dropdown-toggle="user-dropdown"
+                data-dropdown-placement="bottom"
+              >
+                <a href="#" class="text-white mr-2 hidden md:block">Sign Up or Login In</a>
+                <span class="sr-only">Open user menu</span>
+                <svg
+                  stroke="currentColor"
+                  class="text-[35px] text-[white] rounded-full border-2"
+                  fill="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 1024 1024"
+                  height="0.8em"
+                  width="0.8em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M858.5 763.6a374 374 0 0 0-80.6-119.5 375.63 375.63 0 0 0-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 0 0-80.6 119.5A371.7 371.7 0 0 0 136 901.8a8 8 0 0 0 8 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 0 0 8-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
+                  ></path>
+                </svg>
+              </button>
+              <!-- Dropdown menu user -->
+              <div
+                class="z-50 hidden my-2 lg:w-[15%] w-full list-none bg-white rounded-lg shadow text-gray-700 dark:divide-gray-100"
+                id="user-dropdown"
+              >
+                <ul class="py-2 divide-y-2" aria-labelledby="user-menu-button">
+                  <li class="hover:bg-white">
+                    <a
+                      href="#"
+                      class="hover:bg-gray-100 text-[#007AB7] block p-4"
+                      >SIGN UP / LOGIN IN</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" class="hover:bg-gray-100 text-black block p-4"
+                      >My profile</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" class="hover:bg-gray-100 text-black block p-4"
+                      >Administrative tools</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" class="hover:bg-gray-100 text-black block p-4"
+                      >Email preferences</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" class="hover:bg-gray-100 text-black block p-4"
+                      >Address book</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" class="hover:bg-gray-100 text-black block p-4"
+                      >View & pay bill</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" class="hover:bg-gray-100 text-black block p-4"
+                      >Reporting</a
+                    >
+                  </li>
+                </ul>
+                <div>
+                  <a href="#" class="text-[#007AB7]">Õpen an account</a>
+                  <p>
+                    to save 30% off FedEX Express® ,access time-saving tools,
+                    and more!
+                  </p>
+                </div>
+              </div>
+              <!--end of dropdown user-->
+              <!--End of user section-->
+              <!--search field-->
+              <div
+                class="relative lg:flex hidden transition-all m-auto duration-500"
+                id="searchContainer"
+              >
+                <button
+                  class="absolute transform text-[20px] top-2 right-4 text-gray-400 hover:text-gray-600 focus:outline-none focus:z-full"
+                  id="searchIcon"
+                >
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 16 16"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z"
+                      clip-rule="evenodd"
+                    ></path>
+                    <path
+                      fill-rule="evenodd"
+                      d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </button>
+                <input
+                  class="w-0 pl-10 pr-3 float-right py-2 bg-transparent text-black rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  type="text"
+                  placeholder="Search or Tracking Numbers"
+                  id="searchInput"
+                />
+              </div>
+
+              <!--End of search field-->
+              <!--main menu button-->
+              <button
+                data-collapse-toggle="navbar-user"
+                type="button"
+                class="inline-flex items-center p-2 w-10 h-10 justify-center text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                aria-controls="navbar-user"
+                aria-expanded="false"
+              >
+                <span class="sr-only">Open main menu</span>
+                <svg
+                  class="w-5 h-5"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 17 14"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M1 1h15M1 7h15M1 13h15"
+                  />
+                </svg>
+              </button>
+              <!--End of main menu button-->
+            </div>
+            <div
+              class="items-center lg:h-0 h-screen lg:bg-transparent bg-white lg:flex-row-reverse flex-col p-2 justify-center hidden lg:flex lg:w-auto w-full lg:order-2"
+              id="navbar-user"
+            >
+              <!--search field responsive-->
+              <div
+                class="relative lg:hidden flex transition-all m-auto duration-500"
+                id="searchContainer"
+              >
+                <button
+                  class="absolute transform right-5 border-l border-white text-white text-[20px] p-6 focus:outline-none focus:z-full"
+                  id="searchIcon"
+                >
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 16 16"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z"
+                      clip-rule="evenodd"
+                    ></path>
+                    <path
+                      fill-rule="evenodd"
+                      d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </button>
+                <input
+                  class="bg-[#4D148C] border text-white border-gray-300 p-6 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
+                  type="text"
+                  placeholder="Search or Tracking Numbers"
+                  id="searchInput"
+                />
+              </div>
+              <!--End of search field responsive-->
+              <ul
+                id="Links"
+                class="bg-white flex flex-col lg:h-auto h-screen w-full lg:p-0 text-white lg:flex-row lg:space-x-3 lg:bg-[#4D148C] bg-transparent"
+              >
+                <!--shipping -->
+                <li>
+                  <button
+                    id="dropdownShippingLink"
+                    data-dropdown-toggle="dropdownShipping"
+                    data-collapse-toggle="dropdownTrackingLink"
+                    class="lg:text-white lg:focus:bg-white lg:focus:text-[#4D148C] focus:bg-[#4D148C] focus:text-white text-black hover:underline hover:underline-offset-2 p-6 lg:p-2 flex items-center justify-between w-full lg:w-auto"
+                  >
+                    shipping
+                    <svg
+                      class="w-4 h-4 ml-1"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </button>
+                  <!-- Dropdown menu -->
+                  <div
+                    id="dropdownShipping"
+                    class="hidden bg-white z-10 list-none shadow my-4 lg:w-[20%] h-auto w-[95%]"
+                  >
+                    <ul
+                      class="py-2 divide-y-2"
+                      aria-labelledby="dropdownLargeButton"
+                    >
+                      <li class="hover:bg-white">
+                        <a
+                          href="#"
+                          class="hover:bg-gray-100 text-black block p-4"
+                          >Create a Shipment</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="hover:bg-gray-100 text-black block p-4"
+                          >Create Shipment</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="hover:bg-gray-100 text-black block p-4"
+                          >Shipping Rates & Delivery Times</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="hover:bg-gray-100 text-black block p-4"
+                          >Schedule & Manage Pickups</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="hover:bg-gray-100 text-black block p-4"
+                          >Packing & Shipping Supplies</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="hover:bg-gray-100 text-black block p-4"
+                          >International Shipping Guide</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="hover:bg-gray-100 text-black block p-4"
+                          >Freight</a
+                        >
+                      </li>
+                    </ul>
+                    <div class="py-1 border-t border-gray-300">
+                      <a
+                        href="#"
+                        class="hover:bg-gray-100 text-[#007AB7] block p-4"
+                        >ALL SHIPPING SERVICES</a
+                      >
+                    </div>
+                  </div>
+                </li>
+
+                <!--End of shipping -->
+
+                <!--tracking -->
+                <li>
+                  <button
+                    id="dropdownTrackingLink"
+                    data-dropdown-toggle="dropdownTracking"
+                    class="lg:text-white lg:focus:bg-white lg:focus:text-[#4D148C] focus:bg-[#4D148C] focus:text-white text-black hover:underline hover:underline-offset-2 p-6 lg:p-2 flex items-center justify-between w-full lg:w-auto"
+                  >
+                    Tracking
+                    <svg
+                      class="w-4 h-4 ml-1"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </button>
+                  <!-- Dropdown menu -->
+                  <div
+                    id="dropdownTracking"
+                    class="hidden bg-white z-10 list-none shadow my-4 lg:w-[20%] h-auto w-[95%]"
+                  >
+                    <ul
+                      class="py-2 divide-y-2"
+                      aria-labelledby="dropdownLargeButton"
+                    >
+                      <li>
+                        <div
+                          class="flex flex-col justify-center items-center gap-2"
+                        >
+                          <!--track id input-->
+                          <input
+                            type="text"
+                            id="track"
+                            class="w-[95%] p-4 bg-gray-100 focus:border-purple-500 text-black"
+                            data-collapse-toggle="dropdownTracking"
+                          />
+                          <label
+                            for="dropdownTracking"
+                            data-collapse-toggle="dropdownTracking"
+                            class="absolute lg:left-4 left-7 top-6 text-purple-500 transition-all"
+                            >Tracking ID</label
+                          >
+                          <button class="bg-[#FF6200] p-4 w-[95%]">
+                            TRACK
+                          </button>
+                        </div>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="hover:bg-gray-100 text-black block p-4"
+                          >Advanced Shipment Tracking</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="hover:bg-gray-100 text-black block p-4"
+                          >Manage Your Delivery</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="hover:bg-gray-100 text-black block p-4"
+                          >Manage a Return</a
+                        >
+                      </li>
+                    </ul>
+                    <div class="py-1 border-t border-gray-300">
+                      <a
+                        href="#"
+                        class="hover:bg-gray-100 text-[#007AB7] block p-4"
+                        >ALL TRACKING SERVICES</a
+                      >
+                    </div>
+                  </div>
+                </li>
+
+                <!--End of tracking -->
+
+                <!--design print-->
+
+                <li>
+                  <button
+                    id="dropdownDesignPrintLink"
+                    data-dropdown-toggle="dropdownDesignPrint"
+                    class="lg:text-white lg:focus:bg-white lg:focus:text-[#4D148C] focus:bg-[#4D148C] focus:text-white text-black p-6 hover:underline hover:underline-offset-2 lg:p-2 flex items-center justify-between w-full lg:w-auto"
+                  >
+                    Design & Print
+                    <svg
+                      class="w-4 h-4 ml-1"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </button>
+                  <!-- Dropdown menu -->
+                  <div
+                    id="dropdownDesignPrint"
+                    class="hidden bg-white z-10 list-none shadow my-4 lg:w-[20%] h-auto w-[95%]"
+                  >
+                    <ul
+                      class="py-2 divide-y-2"
+                      aria-labelledby="dropdownLargeButton"
+                    >
+                      <li>
+                        <a
+                          href="#"
+                          class="hover:bg-gray-100 text-black block p-4"
+                          >Explore Print, Products & Design</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="hover:bg-gray-100 text-black block p-4"
+                          >Browse Services</a
+                        >
+                      </li>
+                    </ul>
+                    <div class="py-1 border-t border-gray-300">
+                      <a
+                        href="#"
+                        class="hover:bg-gray-100 text-[#007AB7] block p-4"
+                        >VISIT NEW MARKETPLACE</a
+                      >
+                    </div>
+                  </div>
+                </li>
+
+                <!--End of design print-->
+
+                <!--location-->
+
+                <li>
+                  <button
+                    id="dropdownLocationLink"
+                    data-dropdown-toggle="dropdownLocation"
+                    class="lg:text-white lg:focus:bg-white lg:focus:text-[#4D148C] focus:bg-[#4D148C] focus:text-white text-black p-6 hover:underline hover:underline-offset-2 lg:p-2 flex items-center justify-between w-full lg:w-auto"
+                  >
+                    Location
+                    <svg
+                      class="w-4 h-4 ml-1"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </button>
+                  <!-- Dropdown menu -->
+                  <div
+                    id="dropdownLocation"
+                    class="hidden bg-white z-10 list-none shadow my-4 lg:w-[20%] h-auto w-[95%]"
+                  >
+                    <ul class="py-2" aria-labelledby="dropdownLargeButton">
+                      <li>
+                        <a
+                          href="#"
+                          class="hover:bg-gray-100 text-black block p-4"
+                          >Drop Off a Package</a
+                        >
+                      </li>
+                    </ul>
+                    <div class="py-1 border-t border-gray-300">
+                      <a
+                        href="#"
+                        class="hover:bg-gray-100 text-[#007AB7] block p-4"
+                        >FIND A LOCATION</a
+                      >
+                    </div>
+                  </div>
+                </li>
+                <!--End of location-->
+
+                <!--support-->
+                <li>
+                  <button
+                    id="dropdownSupportLink"
+                    data-dropdown-toggle="dropdownSupport"
+                    class="lg:text-white lg:focus:bg-white lg:focus:text-[#4D148C] focus:bg-[#4D148C] focus:text-white text-black p-6 hover:underline hover:underline-offset-2 lg:p-2 flex items-center justify-between w-full lg:w-auto"
+                  >
+                    Support
+                    <svg
+                      class="w-4 h-4 ml-1"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </button>
+                  <!-- Dropdown menu -->
+                  <div
+                    id="dropdownSupport"
+                    class="hidden bg-white z-10 list-none shadow my-4 lg:w-[20%] h-auto w-[95%]"
+                  >
+                    <ul
+                      class="py-2 divide-y-2"
+                      aria-labelledby="dropdownLargeButton"
+                    >
+                      <li>
+                        <a
+                          href="#"
+                          class="hover:bg-gray-100 text-black block p-4"
+                          >Small Buisness</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="hover:bg-gray-100 text-black block p-4"
+                          >FedEX Services Guide</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="hover:bg-gray-100 text-black block p-4"
+                          >Acount Management Tools</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="hover:bg-gray-100 text-black block p-4"
+                          >File a Claim</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="hover:bg-gray-100 text-black block p-4"
+                          >Billing & Invoicing</a
+                        >
+                      </li>
+                    </ul>
+                    <div class="py-1 border-t border-gray-300">
+                      <a
+                        href="#"
+                        class="hover:bg-gray-100 text-[#007AB7] block p-4"
+                        >CUSTOMER SUPPORT</a
+                      >
+                    </div>
+                  </div>
+                </li>
+                <!--End of support-->
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <script src="https://unpkg.com/@themesberg/flowbite@1.1.1/dist/flowbite.bundle.js"></script>
+    </header>
+
+
+
+    <!--end of header-->
+   <main class="flex flex-col md:gap-12 gap-6 p-4 md:w-9/12 max-w-7xl lg:mx-auto 2 pb-24 text-base py-10">
+    <div class="font-semibold gap-4 md:gap-8 flex flex-col md:flex-row w-full justify-between text-[#333333]">
+      <div class="flex flex-col ">
+        <p class="">SCHEDULED DELIVERY DATE</p>
+        <h1 class="font-semibold md:text-5xl text-4xl">Pending</h1>
+      </div>
+      <div class="flex flex-col ">
+        <p class="">DELIVERY STATUS</p>
+        <div class="flex flex-row items-center gap-1">
+          <p>In Transit</p>
+          <svg class=" text-white md:text-3xl text-2xl"  stroke="currentColor" fill="purple" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"></circle><polyline points="12 16 16 12 12 8"></polyline><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+        </div>
+      </div>
+      <div class="flex flex-col">
+        <p>TRACKING ID</p>
+        <p>772980724289</p>
+      </div>
+    </div>
+    <div class="main">
+      <div class="flex flex-col gap-2">
+        <h2 class="md:text-5xl text-4xl font-[300]">Shipment facts</h2>
+        <div class="flex flex-row items-center gap-2">        
+          <svg class="md:text-3xl text-2xl" stroke="currentColor" fill="purple" stroke-width="0" viewBox="0 0 640 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M425.7 256c-16.9 0-32.8-9-41.4-23.4L320 126l-64.2 106.6c-8.7 14.5-24.6 23.5-41.5 23.5-4.5 0-9-.6-13.3-1.9L64 215v178c0 14.7 10 27.5 24.2 31l216.2 54.1c10.2 2.5 20.9 2.5 31 0L551.8 424c14.2-3.6 24.2-16.4 24.2-31V215l-137 39.1c-4.3 1.3-8.8 1.9-13.3 1.9zm212.6-112.2L586.8 41c-3.1-6.2-9.8-9.8-16.7-8.9L320 64l91.7 152.1c3.8 6.3 11.4 9.3 18.5 7.3l197.9-56.5c9.9-2.9 14.7-13.9 10.2-23.1zM53.2 41L1.7 143.8c-4.6 9.2.3 20.2 10.1 23l197.9 56.5c7.1 2 14.7-1 18.5-7.3L320 64 69.8 32.1c-6.9-.8-13.5 2.7-16.6 8.9z"></path></svg>
+          <h4 class="text-2xl font-[400]">Shipement overview</h4>
+        </div>
+      </div>
+        <table class="table-fixed mt-10 w-full font-semibold text-base ">
+          <tbody>
+            <tr class="bg-[#F2F2F2]">
+              <td class="p-2 flex-wrap flex">Tracking Number</td>
+              <td class="p-2">772980724289</td>
+            </tr>
+            <tr class="">
+              <td class="p-2">Ship Date</td>
+              <td class="p-2">Pending</td>
+            </tr>
+            <tr class="bg-[#F2F2F2]">
+              <td class="p-2">SCHEDULED DELIEVRY</td>
+              <td class="p-2">Pending</td>
+            </tr>
+          </tbody>
+        </table>
+      
+    </div>
+    <div class="bottom">
+      <div class="md:w-2/3 flex flex-col gap-5 items-start">
+        <h1 class="text-[#E74B3C] md:text-4xl text-2xl font-bold">Important Message!</h1>
+        <p>To complete the delivery as soon as possible, Please confirm the payment (1.99) by clicking next. Online confirmation must be made within the
+          next 14 days, before it expires.</p>
+          <button class="bg-[#FF6101] text-white text-xl font-bold px-10 py-3 rounde-sm shadow-lg">Next</button>
+      </div>
+    </div>
+   </main>
+
+    <!-- Footer section with social media icons and newsletter sign-up -->
+    <footer class="bg-[#FAFAFA] text-start flex flex-col  lg:items-center items-start text-black w-full ">
+      <div class="px-6 pt-12 flex flex-col lg:pl-10  justify-start w-full flex-wrap">
+        <!-- Links section -->
+        <div class="flex lg:flex-row flex-col justify-between lg:ml-[12%] lg:w-3/5 flex-wrap gap-6">
+          <div class="flex lg:flex-row justify-start lg:gap-20 gap-4 flex-col ">
+            <div class="mb-6">
+              <h5
+                class="mb-2.5 lg:leading-3 leading-4 uppercase text-start lg:text-xs text-sm font-bold text-[#4D148C]"
+              >
+                Our Company
+              </h5>
+              <ul
+                class="mb-0 list-none flex lg:flex-row flex-col lg:gap-20 lg:text-xs text-base font-normal leading-3 gap-0"
+              >
+                <div class="">
+                  <li>
+                    <a href="#!" class="text-black hover:underline"
+                      >About FedEx</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#!" class="text-black hover:underline"
+                      >Our Portfolio</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#!" class="text-black hover:underline"
+                      >Investor Relations</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#!" class="text-black hover:underline">Careers</a>
+                  </li>
+                </div>
+                <div>
+                  <li>
+                    <a href="#!" class="text-black hover:underline"
+                      >FedEx Blog</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#!" class="text-black hover:underline"
+                      >Corporate Responsibility</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#!" class="text-black hover:underline">Newsroom</a>
+                  </li>
+                  <li>
+                    <a href="#!" class="text-black hover:underline"
+                      >Contact Us</a
+                    >
+                  </li>
+                </div>
+              </ul>
+            </div>
+            <div class="mb-6">
+              <h5
+                class="mb-2.5 lg:leading-3 leading-4 uppercase text-start lg:text-xs text-sm font-bold text-[#4D148C]"
+              >
+                MORE FROM FEDEX
+              </h5>
+              <ul
+                class="mb-0 list-none flex flex-col lg:text-xs text-base font-normal leading-4 lg:leading-3 gap-2"
+              >
+                <div>
+                  <li>
+                    <a href="#!" class="text-black hover:underline"
+                      >FedEx Compatible</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#!" class="text-black hover:underline"
+                      >FedEx Developer Portal</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#!" class="text-black hover:underline"
+                      >FedEx Logistics</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#!" class="text-black hover:underline"
+                      >ShopRunner</a
+                    >
+                  </li>
+                </div>
+              </ul>
+            </div>
+          </div>
+          <!-- Language -->
+          <div
+            class="mb-6 lg:text-xs text-base leading-4 flex flex-col gap-6"
+          >
+            <h5
+              class="mb-2.5 lg:leading-3 leading-4 uppercase text-start lg:text-xs text-sm font-bold text-[#4D148C]"
+            >
+              Language
+            </h5>
+            <div class="flex flex-row gap-2 items-center cursor-pointer">
+              <svg
+                class="lg:text-xl text-2xl"
+                stroke="currentColor"
+                fill="currentColor"
+                stroke-width="0"
+                viewBox="0 0 24 24"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill="none"
+                  stroke="#000"
+                  stroke-width="2"
+                  d="M12,23 C18.0751322,23 23,18.0751322 23,12 C23,5.92486775 18.0751322,1 12,1 C5.92486775,1 1,5.92486775 1,12 C1,18.0751322 5.92486775,23 12,23 Z M12,23 C15,23 16,18 16,12 C16,6 15,1 12,1 C9,1 8,6 8,12 C8,18 9,23 12,23 Z M2,16 L22,16 M2,8 L22,8"
+                ></path>
+              </svg>
+              <h5>United States</h5>
+            </div>
+            <button
+              id="dropdownDefaultButton"
+              data-dropdown-toggle="dropdown"
+              class="flex flex-row lg:gap-20 justify-between font-normal text-black text-sm px-5 py-2.5 text-center items-center border border-black"
+              type="button"
+            >
+              English
+              <svg
+                class="w-2.5 h-2.5 ml-2.5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 10 6"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1"
+                  d="m1 1 4 4 4-4"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <hr class="w-[80%] m-auto" />
+        <!-- Social media icons container -->
+        <div
+          class="flex lg:flex-row  flex-col justify-start lg:items-center lg:gap-12 gap-4 lg:pl-[12%] text-start py-16"
+        >
+          <h5
+            class="mb-2.5 lg:leading-3 leading-4 uppercase text-start lg:text-xs text-sm font-bold text-[#4D148C]"
+          >
+            FOLLOW FEDEX
+          </h5>
+          <div
+            class="mb-2.5 flex justify-start items-center content-center flex-row gap-2 flex-wrap"
+          >
+            <a
+              href="#!"
+              type="button"
+              class="m-1 lg:h-9 lg:w-9 w-12 h-12 rounded-full border-2 border-black uppercase leading-normal text-black transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+              data-te-ripple-init
+              data-te-ripple-color="light"
+            >
+              <svg
+                stroke="currentColor"
+                fill="currentColor"
+                stroke-width="0"
+                viewBox="0 0 1024 1024"
+                height="1em"
+                class="mx-auto h-full lg:w-6 w-8"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0 0 68.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"
+                ></path>
+              </svg>
+            </a>
+            <a
+              href="#"
+              type="button"
+              class="m-1 lg:h-9 lg:w-9 w-12 h-12 rounded-full border-2 border-black uppercase leading-normal text-black transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+              data-te-ripple-init
+              data-te-ripple-color="light"
+            >
+              <svg
+                stroke="currentColor"
+                class="mx-auto h-full lg:w-3 w-4"
+                fill="currentColor"
+                stroke-width="0"
+                viewBox="0 0 320 512"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
+                ></path>
+              </svg>
+            </a>
+            <a
+              href="#!"
+              type="button"
+              class="m-1 lg:h-9 lg:w-9 w-12 h-12 rounded-full border-2 border-black uppercase leading-normal text-black transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+              data-te-ripple-init
+              data-te-ripple-color="light"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="mx-auto h-full lg:w-4 w-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
+                />
+              </svg>
+            </a>
+            <a
+              href="#!"
+              type="button"
+              class="m-1 lg:h-9 lg:w-9 w-12 h-12 rounded-full border-2 border-black uppercase leading-normal text-black transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+              data-te-ripple-init
+              data-te-ripple-color="light"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="mx-auto h-full lg:w-4 w-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+            </a>
+            <a
+              href="#!"
+              type="button"
+              class="m-1 lg:h-9 lg:w-9 w-12 h-12 rounded-full border-2 border-black uppercase leading-normal text-black transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+              data-te-ripple-init
+              data-te-ripple-color="light"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="mx-auto h-full lg:w-4 w-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"
+                />
+              </svg>
+            </a>
+            <a
+              href="#!"
+              type="button"
+              class="m-1 lg:h-9 lg:w-9 w-12 h-12 rounded-full border-2 border-black uppercase leading-normal text-black transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+              data-te-ripple-init
+              data-te-ripple-color="light"
+            >
+              <svg
+                stroke="currentColor"
+                fill="currentColor"
+                stroke-width="0"
+                viewBox="0 0 1024 1024"
+                height="1em"
+                width="1em"
+                class="mx-auto h-full lg:w-4 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M941.3 296.1a112.3 112.3 0 0 0-79.2-79.3C792.2 198 512 198 512 198s-280.2 0-350.1 18.7A112.12 112.12 0 0 0 82.7 296C64 366 64 512 64 512s0 146 18.7 215.9c10.3 38.6 40.7 69 79.2 79.3C231.8 826 512 826 512 826s280.2 0 350.1-18.8c38.6-10.3 68.9-40.7 79.2-79.3C960 658 960 512 960 512s0-146-18.7-215.9zM423 646V378l232 133-232 135z"
+                ></path>
+              </svg>
+            </a>
+            <a
+              href="#!"
+              type="button"
+              class="m-1 lg:h-9 lg:w-9 w-12 h-12 rounded-full border-2 border-black uppercase leading-normal text-black transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+              data-te-ripple-init
+              data-te-ripple-color="light"
+            >
+              <svg
+                stroke="currentColor"
+                fill="currentColor"
+                stroke-width="0"
+                viewBox="0 0 384 512"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+                class="mx-auto h-full lg:w-4 w-6"
+              >
+                <path
+                  d="M204 6.5C101.4 6.5 0 74.9 0 185.6 0 256 39.6 296 63.6 296c9.9 0 15.6-27.6 15.6-35.4 0-9.3-23.7-29.1-23.7-67.8 0-80.4 61.2-137.4 140.4-137.4 68.1 0 118.5 38.7 118.5 109.8 0 53.1-21.3 152.7-90.3 152.7-24.9 0-46.2-18-46.2-43.8 0-37.8 26.4-74.4 26.4-113.4 0-66.2-93.9-54.2-93.9 25.8 0 16.8 2.1 35.4 9.6 50.7-13.8 59.4-42 147.9-42 209.1 0 18.9 2.7 37.5 4.5 56.4 3.4 3.8 1.7 3.4 6.9 1.5 50.4-69 48.6-82.5 71.4-172.8 12.3 23.4 44.1 36 69.3 36 106.2 0 153.9-103.5 153.9-196.8C384 71.3 298.2 6.5 204 6.5z"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Copyright section -->
+      <div
+        class="p-4 text-center w-full bg-[#4D148C] text-white flex lg:flex-row flex-col lg:justify-between justify-center lg:pl-60 gap-4 "
+      >
+        <span class="lg:text-xs">© FedEx 1995-2023</span>
+        <span class="flex flex-row gap-8 lg:justify-center justify-center lg:w-4/6">
+          <span class="hover:underline cursor-pointer md:block hidden">Site Map</span>|
+          <span class="hover:underline cursor-pointer">Terms of Use</span>
+          |<span class="hover:underline cursor-pointer">Privacy & Security</span
+          >
+        </span>
+      </div>
+    </footer>
+  </body>
+</html>

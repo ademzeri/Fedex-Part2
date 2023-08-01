@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+header{
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight:bolder
+}
+/* track id input */
+#track:focus + label {
+    transform: translate(0, -80%);
+    font-size: 12px;
+    font-weight: 600;
+    color: purple;
+  }
+  
+  #track:focus {
+    border-left: 4px solid purple;
+  }
+  #searchContainer {
+    animation-direction: right;
+  }
+  

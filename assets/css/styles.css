@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+footer li{
+    margin: 20px 0;
+}
+footer ul{
+    margin-block-end: 0;
+    margin-block-start: 0;
+}
+rect {
+    width: 100%;
+    height: 100%;
+    fill: #69c;
+    stroke: #069;
+    stroke-width: 5px;
+    opacity: 0.5
+  }
+
+  select{
+    padding: 0.8em !important;
+    
+  }
+  label{
+    display:block;
+  }
